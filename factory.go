@@ -2,7 +2,6 @@ package messages
 
 import (
 	"encoding/json"
-	"fmt"
 )
 
 type MessageFactory struct {
@@ -14,11 +13,7 @@ func New() MessageFactory {
 
 func (mf MessageFactory) CreateBirthMessage(name string, address string) Message {
 	data := CreateBirthData(name, address)
-	json, err := data.MarshalJSON()
-	if err != nil {
-		fmt.Println(err)
-	}
-	return Message{Type: BirthMessageType, Data: json}
+	return Message{Type: BirthMessageType, Data: data}
 }
 
 func (mf MessageFactory) CreateDeathMessage(name string) Message {
