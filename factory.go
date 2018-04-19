@@ -11,9 +11,9 @@ func New() MessageFactory {
 	return MessageFactory{}
 }
 
-func (mf MessageFactory) CreateBirthMessage(name string, address string) Message {
+func (mf MessageFactory) CreateBirthMessage(name string, address string) IMessage {
 	data := CreateBirthData(name, address)
-	return Message{Type: BirthMessageType, Data: data}
+	return BirthMessage{data: data}
 }
 
 func (mf MessageFactory) CreateDeathMessage(name string) Message {
